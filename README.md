@@ -44,17 +44,24 @@ and can save you from having to code deeply nested callbacks.
 ```javascript
 
 function downloadCounter(url) {
-	return new Promise(resolve => {
-		$.getJSON(url, data => resolve(data));
+	return new Promise((resolve, reject) => {
+		$.ajax({
+			method: "GET",
+			url: url,
+			success: resolve,
+			error: (_, _, e) => reject(e)
+		});
 	});	
 }
 
 function uploadCounter(url, counter) {
-	return new Promise(resolve => {
+	return new Promise((resolve, reject) => {
 		$.ajax({
 			method: "PUT",
 			url: url,
-			data: counter
+			data: counter,
+			success: resolve,
+			error: (_, _, e) => reject(e)
 		});
 	});	
 }
