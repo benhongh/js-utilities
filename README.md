@@ -67,7 +67,7 @@ function uploadCounter(url, counter) {
 }
 
 function incrementCounter(url) {
-	return async(function* () {
+	return asyncf(function* () {
 		var counter = yield downloadCounter(url); // yield takes a promise and unwraps it
 		counter.value += 1;
 		yield uploadCounter(url, counter);

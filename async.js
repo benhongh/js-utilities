@@ -1,4 +1,4 @@
-function async(generatorFn) {
+function asyncf(generatorFn) {
     var defer = f => window.setTimeout(f, 0);
     var seq = generatorFn();
     
