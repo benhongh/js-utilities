@@ -34,14 +34,3 @@ function async(generatorFn) {
         })(seq => seq.next());
     });
 }
-
-// function example(a, b, c) {
-//     return async(function*() {
-//         var x = yield Promise.resolve(a);
-//         var y = yield Promise.resolve(b);
-//         var z = yield Promise.resolve(c);
-//         return [x, y, z];
-//     });
-// }
-
-// example(1, 2, 3).then(x => console.log(x));
